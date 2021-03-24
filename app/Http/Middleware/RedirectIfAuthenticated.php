@@ -18,8 +18,10 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
+        // if you are logged in -> it will redirect you to intended homepage
         if (Auth::guard($guard)->check()) {
-            return redirect(RouteServiceProvider::HOME);
+            $guard = $guard ? $guard. '.home' : 'app1.home';
+            return redirect(route($guard));
         }
 
         return $next($request);

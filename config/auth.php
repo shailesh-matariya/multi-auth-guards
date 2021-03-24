@@ -41,6 +41,16 @@ return [
             'provider' => 'users',
         ],
 
+        // api2Provider and api3Provider are custom guards those use session storage to get the user details
+        // drivers are registered in AuthServiceProvider
+        'app2' => [
+            'driver' => 'api2Provider'
+        ],
+
+        'app3' => [
+            'driver' => 'api3Provider'
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
