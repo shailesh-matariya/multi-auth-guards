@@ -6,6 +6,7 @@ use App\App3User;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 
 class App3Guard implements Guard
@@ -16,6 +17,7 @@ class App3Guard implements Guard
 
     public function __construct(Request $request)
     {
+        Config::set('session.path', '/app3');
         $this->request = $request;
     }
 

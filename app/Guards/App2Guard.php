@@ -6,6 +6,7 @@ use App\App2User;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
@@ -17,6 +18,7 @@ class App2Guard implements Guard
 
     public function __construct(Request $request)
     {
+        Config::set('session.path', '/app2');
         $this->request = $request;
     }
 
