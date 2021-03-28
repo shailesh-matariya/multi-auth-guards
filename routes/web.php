@@ -40,6 +40,7 @@ Route::group(['as' => 'app1.', 'prefix' => 'app1'], function () {
         Route::post('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
         Route::get('home', [HomeController::class, 'index'])->name('home');
+        Route::post('getUsersAjax', [HomeController::class, 'getUsersAjax'])->name('getUsersAjax');
     });
 });
 
